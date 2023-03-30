@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title> </title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <script>
+    const quizForm = document.getElementById('quiz-form');
+    const resultDiv = document.getElementById('result');
+    const correctAnswers = ['a', 'c'];
+    
+    quizForm.addEventListener('submit', e => {
+      e.preventDefault();
+      
+      let score = 0;
+      const userAnswers = [quizForm.q1.value,quizForm.q2.value];
+      userAnswers.forEach((answer, index) => {
+        if (answer === correctAnswers[index]) {
+          score += 1;
+        }
+      });
+    });
+</script>
+<style>
+  body {
+  -webkit-animation: theme 21s linear infinite;
+          animation: theme 21s linear infinite;
+}
+body:after, body:before {
+  content: "";
+  display: block;
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  width: 100vmax;
+  height: 100vmax;
+  background: rgba(0, 0, 0, 0.05);
+  -webkit-animation: background 90s linear infinite;
+          animation: background 90s linear infinite;
+}
+body:after {
+  left: 15vw;
+}
+body:before {
+  right: 15vw;
+  -webkit-animation-delay: -30s;
+          animation-delay: -30s;
+  animation-direction: reverse;
+}
+
+@-webkit-keyframes theme {
+  0% {
+    background: #74C390;
+  }
+  16% {
+    background: #5DBDB6;
+  }
+  33% {
+    background: #59D4E1;
+  }
+  50% {
+    background: #51BCE8;
+  }
+  66% {
+    background: #FA5374;
+  }
+  83% {
+    background: #E46653;
+  }
+  100% {
+    background: #74C390;
+  }
+}
+
+@keyframes theme {
+  0% {
+    background: #74C390;
+  }
+  16% {
+    background: #5DBDB6;
+  }
+  33% {
+    background: #59D4E1;
+  }
+  50% {
+    background: #51BCE8;
+  }
+  66% {
+    background: #FA5374;
+  }
+  83% {
+    background: #E46653;
+  }
+  100% {
+    background: #74C390;
+  }
+}
+@-webkit-keyframes background {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes background {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+body {
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      background-color: aliceblue;
+    }
+    form{
+      margin-top:20px;
+    }
+    .quiz-container {
+      width: 80%;
+      margin: 0 auto;
+    }
+    
+    h1 {
+      text-align: center;
+    }
+    
+    .question {
+      width:45%;
+      margin-bottom: 20px;
+      background-color: #fff;
+      padding:20px;
+    }
+    .question:nth-child(odd){
+      margin-right:5%;
+    }
+    .question p{
+      font-weight: bold;
+    }
+    
+    .answers {
+      margin-bottom: 20px;
+    }
+    .answers label:not(:first-child){
+      border-top:1px solid #e0e0e0;
+    }
+    
+    label {
+      padding:10px 0;
+      display: block;
+      margin-bottom: 10px;
+    }
+    
+    input[type="radio"] {
+      margin-right: 10px;
+    }
+    
+    .submit-btn {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+    
+    .result {
+      font-weight: bold;
+      font-size: 22px;
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #f2f2f2;
+      border-radius: 5px;
+      text-align: center;
+    }
+</style>
+
+</head>
+<body>
+  <div class="quiz-container">
+    <h1>Free Care To Answer</h1>
+    <hr>
+    <form id="quiz-form">
+      <div class="d-flex">
+        <div class="question">
+          <p>1. Which type of person are you?</p>
+          <div class="answers">
+            <label>
+              <input type="radio" name="q1" value="a">
+              Extrovert
+            </label>
+            <label>
+              <input type="radio" name="q1" value="b">
+              Introvert
+            </label>
+            <label>
+              <input type="radio" name="q1" value="c">
+              Ambivert
+            </label>
+          </div>
+        </div>
+ 
+        <div class="question">
+          <p>2. If a problem happens would you  :</p>
+          <div class="answers">
+            <label>
+              <input type="radio" name="q2" value="a">
+              immediately address the issue 
+            </label>
+            <label>
+              <input type="radio" name="q2" value="b">
+              take time to contemplate
+            </label>
+          </div>
+        </div>
+
+        <div class="question">
+            <p>3. Are you a morning person or a night owl?</p>
+            <div class="answers">
+              <label>
+                <input type="radio" name="q3" value="a">
+                morning person
+              </label>
+              <label>
+                <input type="radio" name="q3" value="b">
+                night owl
+              </label>
+            </div>
+          </div>
+          <div class="question">
+            <p>4. Do you tend to be more  :</p>
+            <div class="answers">
+              <label>
+                <input type="radio" name="q4" value="a">
+                Rational
+              </label>
+              <label>
+                <input type="radio" name="q4" value="b">
+                Emotional
+              </label>
+            </div>
+          </div>
+          <div class="question">
+            <p>5.  Do you usually stay calm even under a lot of pressure :</p>
+            <div class="answers">
+              <label>
+                <input type="radio" name="q5" value="a">
+                Yes
+              </label>
+              <label>
+                <input type="radio" name="q5" value="b">
+                No
+              </label>
+            </div>
+          </div>
+      </div>
+      <form method="post" action="{{ url_for('form') }}">
+        <input class="submit-btn" type="submit" value="Submit" name="sub"/>
+        </form> 
+    </form>
+    
+    <div class="result" id="result"></div>
+  </div>
+  
+</body>
+</html>

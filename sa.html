@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Title of the document</title>
+    <style>
+      .polaroid a {
+        background: #ffffff;
+        display: inline-block;
+        margin: 55px 75px 30px;
+        padding: 15px 15px 30px;
+        text-align: center;
+        text-decoration: none;
+        -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, .3);
+        -moz-box-shadow: 0 4px 6px rgba(0, 0, 0, .3);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, .3);
+        -webkit-transition: all .20s linear;
+        -moz-transition: all .20s linear;
+        transition: all .20s linear;
+        z-index: 0;
+        position: relative;
+      }
+      .polaroid a:after {
+        color: #333;
+        font-size: 25px;
+        content: attr(title);
+        position: relative;
+        top: 15px;
+      }
+      .polaroid img {
+        display: block;
+        width: 250px;
+      }
+      .polaroid:nth-of-type(2n+1) {
+        transform: scale(0.8, 0.8) rotate(-5deg);
+        transition: all 0.35s;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="polaroid">
+      <a href="#" title="sddsfdfsfsdf">
+        <img height="250" src="./static/shot_2023-03-30 152047.420823.png" />
+      </a>
+    </div>
+  </body>
+</html>
+
+
+folder = r'static'
+for filename in os.listdir(folder):
+    file_path = os.path.join(folder, filename)
+    try:
+        if os.path.isfile(file_path) or os.path.islink(file_path): 
+            os.unlink(file_path)
+        elif os.path.isdir(file_path):
+            shutil.rmtree(file_path)
+    except Exception as e:
+        print('Failed to delete %s. Reason: %s' % (file_path, e))

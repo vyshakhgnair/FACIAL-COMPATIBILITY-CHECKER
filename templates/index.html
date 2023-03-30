@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+		
+
+		input[type=submit] {
+ padding: 0.8em 1.8em;
+ border: 2px solid #17C3B2;
+ position: relative;
+ overflow: hidden;
+ background-color: transparent;
+ text-align: center;
+ text-transform: uppercase;
+ font-size: 16px;
+ transition: .3s;
+ z-index: 1;
+ font-family: inherit;
+ color: #17C3B2;
+}
+
+input[type=submit]::before {
+ content: '';
+ width: 0;
+ height: 300%;
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%) rotate(45deg);
+ background: #17C3B2;
+ transition: .5s ease;
+ display: block;
+ z-index: -1;
+}
+
+input[type=submit]:hover::before {
+ width: 105%;
+}
+
+input[type=submit]:hover {
+ color: #111;
+}
+
+
+		.video img
+		{
+			width: 500px;
+            height:500px;
+			display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 30px;
+			border: 3px solid #17C3B2;
+		}
+
+		.btn {
+			display: inline-block;
+			padding: 10px 20px;
+			border: none;
+			text-align: center;
+			text-decoration: none;
+			font-size: 16px;
+			margin: 60px;
+			cursor: pointer;
+			border-radius: 5px;
+            
+		}
+
+        .buttons
+        {
+            margin-left:36%;
+        }
+	</style>
+</head>
+<body>
+	<div class="video">
+		<img src="{{ url_for('video_feed') }}" >
+	</div>
+    <div class="buttons">
+        <form method="post" action="{{ url_for('tasks') }}">
+			<input class="btn" type="submit" value="Capture" name="click"/>
+			<input class="btn" type="submit" value="Next" name="next"/>
+			</form> 
+    </div>
+
+</body>
+</html>
